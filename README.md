@@ -1,15 +1,25 @@
 # 🍽️ Menu Project (FastAPI + Unit Testing)
 
-This project is a backend API service built with **FastAPI** that handles CRUD operations on a restaurant menu. It is intended to serve as the backend for a frontend like VueJS. The project includes full unit testing using Python's `unittest` and `mock`.
+This is a modular, production-style backend API built with **FastAPI**, designed to manage a restaurant menu with full **CRUD functionality** and **unit tests**. It simulates a backend service for a VueJS frontend and emphasizes clean code organization, testing, and separation of concerns.
 
 ---
 
-## 📦 Tech Stack
+## 🧩 Features
 
-- **FastAPI** - Web framework for APIs
-- **Uvicorn** - ASGI server to serve the app
-- **Pydantic v2** - For data models and validation
-- **unittest + mock** - For unit testing
+- CRUD operations for menu items
+- Pydantic v2 with separate schemas
+- Mocked unit tests for isolated logic testing
+- In-memory fake database (easy to replace with real DB later)
+- Auto-generated Swagger docs
+
+---
+
+## 🛠 Tech Stack
+
+- **FastAPI** - API development
+- **Uvicorn** - ASGI server for FastAPI
+- **Pydantic v2** - Data validation and modeling
+- **Unittest + Mock** - Standard Python testing tools
 
 ---
 
@@ -18,57 +28,57 @@ This project is a backend API service built with **FastAPI** that handles CRUD o
 ```
 menu_project/
 ├── main.py                # FastAPI app and route handlers
-├── menu_model.py          # Pydantic model for MenuItem
-├── menu_crud.py           # In-memory CRUD logic
-├── test_menu.py           # Unit tests with unittest + mock
-└── README.md              # You're reading this!
+├── database.py            # In-memory mock database
+├── menu_model.py          # Pydantic model for menu item
+├── schemas.py             # Separate request/response schemas
+├── menu_crud.py           # Core business logic
+├── test_menu.py           # Unit tests with mocking
+└── README.md              # Project documentation
 ```
 
 ---
 
-## 🔧 Requirements
+## 🔧 Installation
 
-You’ll need Python 3.11+ installed on your system.
-
-Install dependencies using pip:
+Ensure Python 3.11+ is installed, then run:
 
 ```bash
 python -m pip install fastapi uvicorn requests
 ```
 
-> 💡 Tip: Use a virtual environment to isolate dependencies:
+> 💡 Use a virtual environment (optional but recommended):
 
 ```bash
 python -m venv venv
-venv\Scripts\activate  # For Windows
+venv\Scripts\activate  # Windows
 ```
 
 ---
 
-## 🚀 Running the FastAPI Server
+## 🚀 Running the FastAPI App
 
-Launch the server using Uvicorn:
+To launch the API service:
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Once it's running, open:
+API will be available at:
 
-- Docs UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 - OpenAPI schema: [http://127.0.0.1:8000/openapi.json](http://127.0.0.1:8000/openapi.json)
 
 ---
 
 ## 🧪 Running Unit Tests
 
-Run this to execute all unit tests:
+Run all tests using:
 
 ```bash
 python test_menu.py
 ```
 
-Each test mocks the underlying CRUD logic, so you don’t need a real database to run tests.
+Tests use `unittest.mock` to patch the business logic layer (`menu_crud.py`), ensuring fast and isolated testing.
 
 ---
 
@@ -83,7 +93,7 @@ Each test mocks the underlying CRUD logic, so you don’t need a real database t
 
 ---
 
-## 🧾 Example Menu Item JSON
+## 🔄 Example Menu Item JSON
 
 ```json
 {
@@ -98,20 +108,20 @@ Each test mocks the underlying CRUD logic, so you don’t need a real database t
 
 ## 🤝 Contributing
 
-1. Fork the repo
-2. Create a new branch (`git checkout -b feature/something`)
-3. Commit your changes
-4. Push to the branch
-5. Open a pull request
+1. Fork this repo
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add new feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a Pull Request
 
 ---
 
 ## 📃 License
 
-This project is licensed under the **MIT License** — use it freely for personal or commercial projects.
+This project is licensed under the **MIT License** — feel free to use, modify, and distribute.
 
 ---
 
-## 📍 Credits
+## 🙌 Credits
 
-Developed by [Harris Sheikh](https://github.com/Harris143) — built for learning and scaling backend services.
+Built by [Harris Sheikh](https://github.com/Harris143) for learning, scaling, and real-world backend architecture prototyping.

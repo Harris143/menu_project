@@ -1,20 +1,19 @@
-from typing import Dict, List
+from typing import List, Optional
 from menu_model import MenuItem
+from database import menu_db
 
-menu_db: Dict[int, MenuItem] = {}
-
-def get_menu_items() -> List[MenuItem]:
+def get_all_items() -> List[MenuItem]:
     return list(menu_db.values())
 
-def add_or_update_menu_item(item: MenuItem) -> MenuItem:
+def insert_or_update(item: MenuItem) -> MenuItem:
     menu_db[item.id] = item
     return item
 
-def update_menu_item(item_id: int, item: MenuItem) -> MenuItem:
+def update_item(item_id: int, item: MenuItem) -> Optional[MenuItem]:
     if item_id in menu_db:
         menu_db[item_id] = item
         return item
     return None
 
-def delete_menu_item(item_id: int) -> bool:
+def delete_item(item_id: int) -> bool:
     return menu_db.pop(item_id, None) is not None
