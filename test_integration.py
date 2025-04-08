@@ -10,7 +10,7 @@ class TestMenuIntegration(unittest.TestCase):
         print("===> Testing POST /menu (create new item)")
         item_data = {
             "id": 1,
-            "name": "Pizza",
+            "name": "IntCheese Pizza",
             "price": 9.99,
             "description": "Cheesy and delicious"
         }
