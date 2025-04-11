@@ -17,3 +17,12 @@ def update_item(item_id: int, item: MenuItem) -> Optional[MenuItem]:
 
 def delete_item(item_id: int) -> bool:
     return menu_db.pop(item_id, None) is not None
+
+def get_item_by_id(item_id: int) -> Optional[MenuItem]:
+    return menu_db.get(item_id)
+
+def get_item_by_name(name: str) -> Optional[MenuItem]:
+    for item in menu_db.values():
+        if item.name.lower() == name.lower():
+            return item
+    return None
